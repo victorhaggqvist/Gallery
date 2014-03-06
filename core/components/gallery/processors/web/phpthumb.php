@@ -14,6 +14,7 @@ if (!$modx->loadClass('modPhpThumb',$modx->getOption('core_path').'model/phpthum
 }
 $debug = $modx->getOption('debug',$scriptProperties,false);
 $src = $modx->getOption('src',$scriptProperties,'');
+if (is_array($src)) $src = $src['src'];
 $src = str_replace('+','%27',urldecode($src));
 
 /* explode tag options */
