@@ -56,7 +56,7 @@ class galItem extends xPDOSimpleObject {
 
                 $ms = $this->getMediaSource();
                 if($ms->getBaseUrl() != '/') {
-                    $format['src'] = $ms->getBaseUrl().$this->xpdo->call('galAlbum','getFilesUrl',array(&$this->xpdo)).$filename;
+                    $format['src'] = $this->xpdo->call('galAlbum','getFilesUrl',array(&$this->xpdo)).$filename;
                 }
 
                 $url = $value.'&'.http_build_query($format,'','&');
@@ -79,7 +79,7 @@ class galItem extends xPDOSimpleObject {
 
                 $ms = $this->getMediaSource();
                 if($ms->getBaseUrl() != '/') {
-                    $format['src'] = $ms->getBaseUrl().$this->xpdo->call('galAlbum','getFilesUrl',array(&$this->xpdo)).$filename;
+                    $format['src'] = $this->xpdo->call('galAlbum','getFilesUrl',array(&$this->xpdo)).$filename;
                 }
 
                 $value = $this->getPhpThumbUrl().'&'.http_build_query($format,'','&');
