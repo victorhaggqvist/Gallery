@@ -202,8 +202,8 @@ class galAlbum extends xPDOSimpleObject {
         $targetDir = str_ireplace(MODX_BASE_PATH, '', $this->getPath());
 
         /* if directory doesnt exist, create it */
-        if (!$mediaSource->createContainer($targetDir,'/')) {
-            $this->xpdo->log(xPDO::LOG_LEVEL_ERROR,'[Gallery] Could not create directory (possibly already exists?): '.$targetDir);
+        if ((!file_exists($this->getPath())) && (!@mkdir($this->getPath(), 0777))) { 
+            $this->xpdo->log(xPDO::LOG_LEVEL_ERROR,'[Gallery] Could not create directory (possibly already exists?): '.$this->getPath().'/');
         }
 
         /* upload the file */
